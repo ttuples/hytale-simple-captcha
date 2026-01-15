@@ -1,0 +1,20 @@
+{
+  "Group": "Tuples",
+  "Name": "TemplatePlugin",
+  "Version": "1.0.0",
+  "Description": "A Hytale plugin template",
+  "Authors": [
+    {
+      "Name": "Tuples"
+    }
+  ],
+  "Website": "https://github.com/ttuples/hytale-plugin-template",
+  "Main": "com.tuples.templateplugin.Main",
+  "ServerVersion": "*",
+  "Dependencies": {
+    "Hytale:EntityModule": "*"
+  },
+  "OptionalDependencies": {},
+  "DisabledByDefault": false,
+  "IncludesAssetPack": true
+}
