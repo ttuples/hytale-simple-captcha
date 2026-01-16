@@ -10,6 +10,8 @@ import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import com.tuples.captcha.CaptchaPlugin;
+import com.tuples.captcha.component.CaptchaComponent;
 import com.tuples.captcha.gui.CaptchaPage;
 
 import javax.annotation.Nonnull;
@@ -36,6 +38,7 @@ public class ShowCaptchaCommand extends AbstractAsyncCommand {
                 World world = store.getExternalData().getWorld();
                 return CompletableFuture.runAsync(() -> {
                     PlayerRef playerRefComponent = store.getComponent(ref, PlayerRef.getComponentType());
+                    store.ensureAndGetComponent(ref, CaptchaPlugin.get().getCaptchaComponentType()).reset();
                     if (playerRefComponent != null) {
                         player.getPageManager().openCustomPage(ref, store, new CaptchaPage(playerRefComponent));
                     }

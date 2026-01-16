@@ -7,6 +7,7 @@ import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.protocol.packets.interface_.CustomPageLifetime;
 import com.hypixel.hytale.protocol.packets.interface_.CustomUIEventBindingType;
+import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.entity.entities.player.pages.InteractiveCustomUIPage;
 import com.hypixel.hytale.server.core.ui.builder.EventData;
 import com.hypixel.hytale.server.core.ui.builder.UICommandBuilder;
@@ -20,12 +21,12 @@ import javax.annotation.Nonnull;
 
 public class CaptchaPage extends InteractiveCustomUIPage<CaptchaPage.PageEventData> {
     public CaptchaPage(@Nonnull PlayerRef playerRef) {
-        super(playerRef, CustomPageLifetime.CanDismiss, PageEventData.CODEC);
+        super(playerRef, CustomPageLifetime.CantClose, PageEventData.CODEC);
     }
 
     @Override
     public void build(@Nonnull Ref<EntityStore> ref, @Nonnull UICommandBuilder commands, @Nonnull UIEventBuilder events, @Nonnull Store<EntityStore> store) {
-
+        CaptchaComponent component = store.ensureAndGetComponent(ref, CaptchaPlugin.get().getCaptchaComponentType());
 
         commands.append("Pages/Tuples_SimpleCaptcha_Container.ui");
 
@@ -42,38 +43,38 @@ public class CaptchaPage extends InteractiveCustomUIPage<CaptchaPage.PageEventDa
         );
 
         // Setup page
-        commands.set("#PageTitle.Text", "Solve the Captcha");
+        commands.set("#CaptchaInstruction.Text", Message.translation(component.getChallengeInstruction()));
 
         // Set up the captcha grid
         commands.clear("#CaptchaGrid");
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < CaptchaComponent.CELL_COUNT; i++) {
             String selector = "#CaptchaGrid[" + i + "]";
             commands.append("#CaptchaGrid", "Components/Tuples_SimpleCaptcha_Cell.ui");
 
-            events.addEventBinding(
-                    CustomUIEventBindingType.Activating,
-                    selector + " #Button",
-                    (new EventData())
-                            .append("Action", "CELL_CLICK")
-                            .append("CellId", Integer.toString(i))
-            );
+            commands.set(selector + " #Icon.Background", component.getChallengeImagePath(i));
+
+            if (component.isCellSelected(i)) {
+                commands.set(selector + " #Button.Visible", false);
+                commands.set(selector + " #ButtonSelected.Visible", true);
+
+                events.addEventBinding(
+                        CustomUIEventBindingType.Activating,
+                        selector + " #ButtonSelected",
+                        (new EventData())
+                                .append("Action", "CELL_CLICK")
+                                .append("CellId", Integer.toString(i))
+                );
+            } else {
+                events.addEventBinding(
+                        CustomUIEventBindingType.Activating,
+                        selector + " #Button",
+                        (new EventData())
+                                .append("Action", "CELL_CLICK")
+                                .append("CellId", Integer.toString(i))
+                );
+            }
         }
     }
-
-//    public void updateCells(@Nonnull Ref<EntityStore> ref, @Nonnull UICommandBuilder commands, @Nonnull Store<EntityStore> store) {
-//        CaptchaComponent component = store.ensureAndGetComponent(ref, Main.get().captchaComponentType);
-//        int[] selectedCells = component.getSelectedCells();
-//
-//        for (int i = 0; i < 9; i++) {
-//            String selector = "#CaptchaGrid[" + i + "] #Button.Background";
-//            if (selectedCells[i] == 1) {
-//                commands.set(selector + ".AssetPath", "Captcha/selected_cell.png");
-//            } else {
-//                commands.set(selector + ".AssetPath", "Captcha/unselected_cell.png");
-//            }
-//        }
-//        this.sendUpdate(commands);
-//    }
 
     protected void sendUpdate(UICommandBuilder commands) {
         this.sendUpdate(commands, false);
@@ -81,7 +82,7 @@ public class CaptchaPage extends InteractiveCustomUIPage<CaptchaPage.PageEventDa
 
     @Override
     public void handleDataEvent(@Nonnull Ref<EntityStore> ref, @Nonnull Store<EntityStore> store, @Nonnull PageEventData data) {
-        CaptchaComponent component = store.ensureAndGetComponent(ref, CaptchaPlugin.get().captchaComponentType);
+        CaptchaComponent component = store.ensureAndGetComponent(ref, CaptchaPlugin.get().getCaptchaComponentType());
         switch (data.action) {
             case "CELL_CLICK" -> {
                 System.out.println("Captcha cell clicked: " + data.cellId);

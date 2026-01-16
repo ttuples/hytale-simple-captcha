@@ -2,8 +2,13 @@ $C = "../Common.ui";
 $S = "../Tuples_SimpleCaptcha_Styles.ui";
 
 Group #Cell {
-  Anchor: (Width: 74, Height: 74);
+  Anchor: (Width: 69, Height: 69);
   Padding: (Full: 2);
+
+  Group #Icon {
+    Anchor: (Width: 67, Height: 67);
+    Padding: (Full: 0);
+  }
 
   TextButton #Button {
     Visible: true;
@@ -16,7 +21,7 @@ Group #Cell {
           HorizontalAlignment: Center,
           VerticalAlignment: Center,
         ),
-        Background: (TexturePath: "../Captcha/Cell/default.png"),
+        Background: (TexturePath: "../Captcha/Button/default.png", Border: 8),
       ),
       Hovered: (
         LabelStyle: (
@@ -24,7 +29,7 @@ Group #Cell {
           HorizontalAlignment: Center,
           VerticalAlignment: Center,
         ),
-        Background: (TexturePath: "../Captcha/Cell/hovered.png", Border: 8),
+        Background: (TexturePath: "../Captcha/Button/hovered.png", Border: 8),
       )
     );
     FlexWeight: 1;
@@ -41,18 +46,9 @@ Group #Cell {
           HorizontalAlignment: Center,
           VerticalAlignment: Center,
         ),
-        Background: (TexturePath: "../Captcha/gaben.png"),
+        Background: (TexturePath: "../Captcha/Button/selected.png", Border: 8),
       )
     );
     FlexWeight: 1;
-  }
-
-  Group {
-    LayoutMode: Middle;
-    Anchor: (Full: 0);
-
-    AssetImage #Icon {
-      Anchor: (Width: 72, Height: 72);
-    }
   }
 }

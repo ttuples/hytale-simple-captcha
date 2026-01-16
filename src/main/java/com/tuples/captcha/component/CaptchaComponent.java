@@ -5,9 +5,12 @@ import com.hypixel.hytale.codec.KeyedCodec;
 import com.hypixel.hytale.codec.builder.BuilderCodec;
 import com.hypixel.hytale.component.Component;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import com.tuples.captcha.CaptchaChallenge;
+import com.tuples.captcha.CaptchaPlugin;
 import org.jetbrains.annotations.Nullable;
 
-import static com.hypixel.hytale.math.util.MathUtil.randomInt;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CaptchaComponent implements Component<EntityStore> {
 
@@ -17,20 +20,36 @@ public class CaptchaComponent implements Component<EntityStore> {
                             (captchaComponent, selectedCells) -> captchaComponent.selectedCells = selectedCells,
                             (captchaComponent) -> captchaComponent.selectedCells)
                     .add()
-                    .append(new KeyedCodec<>("CurrentChallenge", Codec.INTEGER),
+                    .append(new KeyedCodec<>("CurrentChallenge", Codec.STRING),
                             (captchaComponent, currentChallenge) -> captchaComponent.currentChallenge = currentChallenge,
                             (captchaComponent) -> captchaComponent.currentChallenge)
                     .add()
                     .build();
 
-    private int[] selectedCells = new int[9];
-    private int currentChallenge = 0;
+    public static final int CELL_COUNT = 16;
+    private int[] selectedCells = new int[CELL_COUNT];
+    private String currentChallenge;
 
-    public CaptchaComponent() {};
+    public CaptchaComponent() {
+        this.newChallenge();
+    };
 
     public boolean submit() {
-        //TODO: Check logic
-        this.reset();
+        var challenge = CaptchaPlugin.get().getCaptchaByName(currentChallenge);
+
+        List<Boolean> expected =
+                new ArrayList<>(challenge.images.values());
+
+        for (int i = 0; i < selectedCells.length; i++) {
+            boolean selected = selectedCells[i] == 1;
+            boolean shouldSelect = expected.get(i);
+
+            if (selected != shouldSelect) {
+                this.reset();
+                return false;
+            }
+        }
+
         return true;
     }
 
@@ -39,8 +58,25 @@ public class CaptchaComponent implements Component<EntityStore> {
         this.newChallenge();
     }
 
-    public int[] getSelectedCells() {
-        return selectedCells;
+    public String getChallengeImagePath(int cellId) {
+        CaptchaChallenge challenge =
+                CaptchaPlugin.get().getCaptchaByName(currentChallenge);
+
+        return new ArrayList<>(challenge.images.keySet()).get(cellId);
+    }
+
+    public String getChallengeInstruction() {
+        CaptchaChallenge challenge =
+                CaptchaPlugin.get().getCaptchaByName(currentChallenge);
+
+        return challenge.text;
+    }
+
+    public boolean isCellSelected(int index) {
+        if (index >= 0 && index < selectedCells.length) {
+            return selectedCells[index] == 1;
+        }
+        return false;
     }
 
     public void toggleCellSelected(int index) {
@@ -50,18 +86,18 @@ public class CaptchaComponent implements Component<EntityStore> {
     }
 
     public void clearSelectedCells() {
-        this.selectedCells = new int[9];
+        this.selectedCells = new int[CELL_COUNT];
     }
 
     public void newChallenge() {
-        this.currentChallenge = 0;
-//        this.currentChallenge = randomInt(1, 5);
+        this.currentChallenge = CaptchaPlugin.get().getRandomCaptcha();
     }
 
     @Override
     public @Nullable Component<EntityStore> clone() {
         CaptchaComponent copy = new CaptchaComponent();
         copy.selectedCells = this.selectedCells;
+        copy.currentChallenge = this.currentChallenge;
         return copy;
     }
 }
