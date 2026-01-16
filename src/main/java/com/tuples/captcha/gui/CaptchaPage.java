@@ -85,17 +85,14 @@ public class CaptchaPage extends InteractiveCustomUIPage<CaptchaPage.PageEventDa
         CaptchaComponent component = store.ensureAndGetComponent(ref, CaptchaPlugin.get().getCaptchaComponentType());
         switch (data.action) {
             case "CELL_CLICK" -> {
-                System.out.println("Captcha cell clicked: " + data.cellId);
                 component.toggleCellSelected(Integer.parseInt(data.cellId));
                 this.rebuild();
             }
             case "SUBMIT" -> {
-                System.out.println("Submit button clicked");
                 if (component.submit()) { this.close(); }
                 else { this.rebuild(); }
             }
             case "REFRESH" -> {
-                System.out.println("Refresh button clicked");
                 component.reset();
                 this.rebuild();
             }

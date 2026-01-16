@@ -25,10 +25,10 @@ import java.util.logging.Level;
 public class CaptchaPlugin extends JavaPlugin {
 
     private static CaptchaPlugin instance;
+    private static final Gson GSON = new Gson();
 
     private ComponentType<EntityStore, CaptchaComponent> captchaComponentType;
-    private static final Gson GSON = new Gson();
-    public static Map<String, CaptchaChallenge> captchas;
+    private static Map<String, CaptchaChallenge> captchas;
 
     public CaptchaPlugin(@Nonnull JavaPluginInit init) {
         super(init);
