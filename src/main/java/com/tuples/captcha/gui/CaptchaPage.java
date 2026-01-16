@@ -59,12 +59,15 @@ public class CaptchaPage extends InteractiveCustomUIPage<CaptchaPage.PageEventDa
         switch (data.action) {
             case "CELL_CLICK" -> {
                 System.out.println("Captcha cell clicked: " + data.cellId);
+                this.rebuild();
             }
             case "SUBMIT" -> {
                 System.out.println("Submit button clicked");
+                this.close();
             }
             case "REFRESH" -> {
                 System.out.println("Refresh button clicked");
+                this.rebuild();
             }
         }
     }
