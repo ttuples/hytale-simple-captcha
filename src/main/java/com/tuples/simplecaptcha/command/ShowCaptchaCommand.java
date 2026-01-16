@@ -1,4 +1,4 @@
-package com.tuples.captcha.command;
+package com.tuples.simplecaptcha.command;
 
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
@@ -10,9 +10,8 @@ import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.tuples.captcha.CaptchaPlugin;
-import com.tuples.captcha.component.CaptchaComponent;
-import com.tuples.captcha.gui.CaptchaPage;
+import com.tuples.simplecaptcha.CaptchaPlugin;
+import com.tuples.simplecaptcha.gui.CaptchaPage;
 
 import javax.annotation.Nonnull;
 import java.util.concurrent.CompletableFuture;

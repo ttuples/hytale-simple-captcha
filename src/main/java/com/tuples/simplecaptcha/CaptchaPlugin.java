@@ -1,23 +1,20 @@
-package com.tuples.captcha;
+package com.tuples.simplecaptcha;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.tuples.captcha.command.ShowCaptchaCommand;
-import com.tuples.captcha.component.CaptchaComponent;
+import com.tuples.simplecaptcha.command.ShowCaptchaCommand;
+import com.tuples.simplecaptcha.component.CaptchaComponent;
 
 import javax.annotation.Nonnull;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.logging.Level;
@@ -81,7 +78,7 @@ public class CaptchaPlugin extends JavaPlugin {
                 captchas = GSON.fromJson(reader, type);
             }
         } catch (Exception e) {
-            throw new RuntimeException("Failed to load captcha definitions", e);
+            throw new RuntimeException("Failed to load simplecaptcha definitions", e);
         }
     }
 

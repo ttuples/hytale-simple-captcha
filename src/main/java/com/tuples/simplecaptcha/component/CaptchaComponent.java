@@ -1,14 +1,14 @@
-package com.tuples.captcha.component;
+package com.tuples.simplecaptcha.component;
 
 import com.hypixel.hytale.codec.Codec;
 import com.hypixel.hytale.codec.KeyedCodec;
 import com.hypixel.hytale.codec.builder.BuilderCodec;
 import com.hypixel.hytale.component.Component;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.tuples.captcha.CaptchaChallenge;
-import com.tuples.captcha.CaptchaPlugin;
-import org.jetbrains.annotations.Nullable;
+import com.tuples.simplecaptcha.CaptchaChallenge;
+import com.tuples.simplecaptcha.CaptchaPlugin;
 
+import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -94,7 +94,7 @@ public class CaptchaComponent implements Component<EntityStore> {
     }
 
     @Override
-    public @Nullable Component<EntityStore> clone() {
+    public @Nonnull Component<EntityStore> clone() {
         CaptchaComponent copy = new CaptchaComponent();
         copy.selectedCells = this.selectedCells;
         copy.currentChallenge = this.currentChallenge;

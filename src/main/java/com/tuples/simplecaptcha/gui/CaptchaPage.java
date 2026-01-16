@@ -1,4 +1,4 @@
-package com.tuples.captcha.gui;
+package com.tuples.simplecaptcha.gui;
 
 import com.hypixel.hytale.codec.Codec;
 import com.hypixel.hytale.codec.KeyedCodec;
@@ -14,8 +14,8 @@ import com.hypixel.hytale.server.core.ui.builder.UICommandBuilder;
 import com.hypixel.hytale.server.core.ui.builder.UIEventBuilder;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.tuples.captcha.CaptchaPlugin;
-import com.tuples.captcha.component.CaptchaComponent;
+import com.tuples.simplecaptcha.CaptchaPlugin;
+import com.tuples.simplecaptcha.component.CaptchaComponent;
 
 import javax.annotation.Nonnull;
 
@@ -45,7 +45,7 @@ public class CaptchaPage extends InteractiveCustomUIPage<CaptchaPage.PageEventDa
         // Setup page
         commands.set("#CaptchaInstruction.Text", Message.translation(component.getChallengeInstruction()));
 
-        // Set up the captcha grid
+        // Set up the simplecaptcha grid
         commands.clear("#CaptchaGrid");
         for (int i = 0; i < CaptchaComponent.CELL_COUNT; i++) {
             String selector = "#CaptchaGrid[" + i + "]";
