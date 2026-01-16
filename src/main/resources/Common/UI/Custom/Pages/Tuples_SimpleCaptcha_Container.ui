@@ -4,7 +4,7 @@ $S = "../Tuples_SimpleCaptcha_Styles.ui";
 $C.@PageOverlay {}
 
 $C.@Container {
-  Anchor: (Width: 450, Height: 450);
+  Anchor: (Width: 450, Height: 500);
 
   #Title {
     Group {
@@ -20,8 +20,12 @@ $C.@Container {
     Group {
       LayoutMode: Middle;
 
-      Label #CaptchaInstruction {
+      Label {
         Style: $S.@CaptchaLabelStyle;
+        Text: %captcha.ui.instruction;
+      }
+      Label #CaptchaInstruction {
+        Style: $S.@CaptchaInstructionStyle;
         Text: "";
       }
     }

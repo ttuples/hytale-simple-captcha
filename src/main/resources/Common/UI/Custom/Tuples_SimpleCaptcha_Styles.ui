@@ -5,6 +5,15 @@ $C = "Common.ui";
 @CaptchaLabelStyle = LabelStyle(
   FontSize: 14,
   TextColor: #ffffff,
+  RenderBold: false,
+  Wrap: true,
+  HorizontalAlignment: Center,
+  VerticalAlignment: Center,
+);
+
+@CaptchaInstructionStyle = LabelStyle(
+  FontSize: 16,
+  TextColor: #f3db6c,
   RenderBold: true,
   Wrap: true,
   HorizontalAlignment: Center,
