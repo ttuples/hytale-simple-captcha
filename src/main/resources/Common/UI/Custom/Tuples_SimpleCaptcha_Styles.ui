@@ -1,11 +1,14 @@
 $C = "Common.ui";
 
-@CaptchaCellBackgroundPlaceholder = "Captchas/placeholder.png";
+@CaptchaPlaceholder = PatchStyle(TexturePath: "Captchas/template.png");
 
 @CaptchaLabelStyle = LabelStyle(
   FontSize: 14,
-  TextColor: #3e3e3e,
-  RenderBold: true
+  TextColor: #ffffff,
+  RenderBold: true,
+  Wrap: true,
+  HorizontalAlignment: Center,
+  VerticalAlignment: Center,
 );
 
 @CaptchaButton = TextButton {
@@ -46,15 +49,16 @@ $C = "Common.ui";
 
 @CaptchaCellButtonStyle = ButtonStyle(
   Default: (
-    Background: @CaptchaCellBackgroundPlaceholder
+    Background: @CaptchaPlaceholder
   ),
   Hovered: (
-    Background: @CaptchaCellBackgroundPlaceholder
+    Background: @CaptchaPlaceholder
   ),
   Pressed: (
-    Background: @CaptchaCellBackgroundPlaceholder
+    Background: @CaptchaPlaceholder
   ),
   Disabled: (
-    Background: @CaptchaCellBackgroundPlaceholder
-  )
+    Background: @CaptchaPlaceholder
+  ),
+  Sounds: $C.@ButtonSounds
 );

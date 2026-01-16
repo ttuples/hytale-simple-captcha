@@ -42,16 +42,23 @@ public class CaptchaPage extends InteractiveCustomUIPage<CaptchaPage.PageEventDa
         // Set up the captcha grid
         commands.clear("#CaptchaGrid");
         for (int i = 0; i < 9; i++) {
+            var selector = "#CaptchaGrid[" + i + "] ";
             commands.append("#CaptchaGrid", "Components/Tuples_SimpleCaptcha_Cell.ui");
+
+//            commands.set(selector + "#Button.BackgroundImage", "Captchas/template.png");
 
             events.addEventBinding(
                     CustomUIEventBindingType.Activating,
-                    "#CaptchaGrid[" + i + "] #Button",
+                    selector + "#Button",
                     (new EventData())
                             .append("Action", "CELL_CLICK")
                             .append("CellId", Integer.toString(i))
             );
         }
+    }
+
+    protected void sendUpdate() {
+        this.sendUpdate(null, false);
     }
 
     @Override
