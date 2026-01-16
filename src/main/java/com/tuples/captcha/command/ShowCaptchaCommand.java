@@ -1,9 +1,8 @@
-package com.tuples.templateplugin.command;
+package com.tuples.captcha.command;
 
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.protocol.GameMode;
-import com.hypixel.hytale.protocol.packets.interface_.CustomPageLifetime;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
 import com.hypixel.hytale.server.core.command.system.CommandSender;
 import com.hypixel.hytale.server.core.command.system.basecommands.AbstractAsyncCommand;
@@ -11,15 +10,15 @@ import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.tuples.templateplugin.gui.TemplateGui;
+import com.tuples.captcha.gui.CaptchaPage;
 
 import javax.annotation.Nonnull;
 import java.util.concurrent.CompletableFuture;
 
 import static com.hypixel.hytale.server.core.command.commands.player.inventory.InventorySeeCommand.MESSAGE_COMMANDS_ERRORS_PLAYER_NOT_IN_WORLD;
 
-public class ShowGuiCommand extends AbstractAsyncCommand {
-    public ShowGuiCommand() {
+public class ShowCaptchaCommand extends AbstractAsyncCommand {
+    public ShowCaptchaCommand() {
         super("test", "Opens the template GUI.");
         this.setPermissionGroup(GameMode.Adventure);
     }
@@ -38,7 +37,7 @@ public class ShowGuiCommand extends AbstractAsyncCommand {
                 return CompletableFuture.runAsync(() -> {
                     PlayerRef playerRefComponent = store.getComponent(ref, PlayerRef.getComponentType());
                     if (playerRefComponent != null) {
-                        player.getPageManager().openCustomPage(ref, store, new TemplateGui(playerRefComponent));
+                        player.getPageManager().openCustomPage(ref, store, new CaptchaPage(playerRefComponent));
                     }
                 }, world);
             } else {

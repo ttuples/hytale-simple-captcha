@@ -1,15 +1,15 @@
 {
   "Group": "Tuples",
-  "Name": "TemplatePlugin",
+  "Name": "SimpleCaptcha",
   "Version": "1.0.0",
-  "Description": "A Hytale plugin template",
+  "Description": "Joke Captcha Mod for Hytale",
   "Authors": [
     {
       "Name": "Tuples"
     }
   ],
-  "Website": "https://github.com/ttuples/hytale-plugin-template",
-  "Main": "com.tuples.templateplugin.Main",
+  "Website": "https://github.com/ttuples/hytale-simple-captcha",
+  "Main": "com.tuples.captcha.Main",
   "ServerVersion": "*",
   "Dependencies": {
     "Hytale:EntityModule": "*"

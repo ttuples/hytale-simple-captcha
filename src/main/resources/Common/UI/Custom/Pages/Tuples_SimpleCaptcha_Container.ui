@@ -1,0 +1,59 @@
+$C = "../Common.ui";
+$S = "../Tuples_SimpleCaptcha_Styles.ui";
+
+$C.@PageOverlay {}
+
+$C.@Container {
+  Anchor: (Width: 400, Height: 300);
+
+  #Title {
+    Group {
+      $C.@Title #PageTitle {
+        @Text = "Simple Captcha";
+      }
+    }
+  }
+
+  #Content {
+    LayoutMode: Top;
+
+    Group #Main {
+      LayoutMode: Top;
+
+      Group #CaptchaContainer {
+        LayoutMode: Middle;
+        Anchor: (Width: 174, Height: 174);
+
+        Group #CaptchaGrid {
+          LayoutMode: LeftCenterWrap;
+        }
+      }
+    }
+
+    Label {FlexWeight: 1;}
+
+    Group {
+      LayoutMode: Bottom;
+
+      Group {
+        LayoutMode: Left;
+
+        Label {FlexWeight: 1;}
+
+        $S.@CaptchaButton #SubmitButton {
+          @Text = "Submit";
+        }
+
+        Label {FlexWeight: 1;}
+
+        $S.@CaptchaButton #RefreshButton {
+          @Text = "Refresh";
+        }
+
+        Label {FlexWeight: 1;}
+      }
+    }
+  }
+}
+
+$C.@BackButton {}

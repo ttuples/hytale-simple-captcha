@@ -1,0 +1,60 @@
+$C = "Common.ui";
+
+@CaptchaCellBackgroundPlaceholder = "Captchas/placeholder.png";
+
+@CaptchaLabelStyle = LabelStyle(
+  FontSize: 14,
+  TextColor: #3e3e3e,
+  RenderBold: true
+);
+
+@CaptchaButton = TextButton {
+  @Anchor = Anchor();
+  Style: @CaptchaButtonStyle;
+  Anchor: (...@Anchor, Height: 40);
+  Padding: (Horizontal: 20, Vertical: 10);
+  Text: @Text;
+};
+
+@CaptchaButtonStyle = TextButtonStyle(
+  Default: (
+    Background: $C.@DefaultSquareButtonDefaultBackground,
+    LabelStyle: @CaptchaLabelStyle
+  ),
+  Hovered: (
+    Background: $C.@DefaultSquareButtonHoveredBackground,
+    LabelStyle: @CaptchaLabelStyle
+  ),
+  Pressed: (
+    Background: $C.@DefaultSquareButtonPressedBackground,
+    LabelStyle: @CaptchaLabelStyle
+  ),
+  Disabled: (
+    Background: $C.@DefaultSquareButtonDisabledBackground,
+    LabelStyle: $C.@DefaultButtonDisabledLabelStyle
+  ),
+  Sounds: $C.@ButtonSounds
+);
+
+@CaptchaCellButton = Button {
+  @Anchor = Anchor();
+  @Sounds = ();
+  @Size = 48;
+  Style: @CaptchaCellButtonStyle;
+  Anchor: (...@Anchor, Height: @Size, Width: @Size);
+};
+
+@CaptchaCellButtonStyle = ButtonStyle(
+  Default: (
+    Background: @CaptchaCellBackgroundPlaceholder
+  ),
+  Hovered: (
+    Background: @CaptchaCellBackgroundPlaceholder
+  ),
+  Pressed: (
+    Background: @CaptchaCellBackgroundPlaceholder
+  ),
+  Disabled: (
+    Background: @CaptchaCellBackgroundPlaceholder
+  )
+);

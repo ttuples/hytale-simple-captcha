@@ -1,8 +1,8 @@
-package com.tuples.templateplugin;
+package com.tuples.captcha;
 
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
-import com.tuples.templateplugin.command.ShowGuiCommand;
+import com.tuples.captcha.command.ShowCaptchaCommand;
 import javax.annotation.Nonnull;
 import java.util.logging.Level;
 
@@ -21,7 +21,7 @@ public class Main extends JavaPlugin {
     @Override
     protected void setup() {
         instance = this;
-        this.getCommandRegistry().registerCommand(new ShowGuiCommand());
+        this.getCommandRegistry().registerCommand(new ShowCaptchaCommand());
 
         getLogger().at(Level.INFO).log("Setup complete!");
     }
