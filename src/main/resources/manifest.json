@@ -9,7 +9,7 @@
     }
   ],
   "Website": "https://github.com/ttuples/hytale-simple-captcha",
-  "Main": "com.tuples.captcha.Main",
+  "Main": "com.tuples.captcha.CaptchaPlugin",
   "ServerVersion": "*",
   "Dependencies": {
     "Hytale:EntityModule": "*"

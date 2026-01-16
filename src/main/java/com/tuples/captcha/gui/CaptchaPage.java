@@ -3,7 +3,6 @@ package com.tuples.captcha.gui;
 import com.hypixel.hytale.codec.Codec;
 import com.hypixel.hytale.codec.KeyedCodec;
 import com.hypixel.hytale.codec.builder.BuilderCodec;
-import com.hypixel.hytale.component.Component;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.protocol.packets.interface_.CustomPageLifetime;
@@ -14,9 +13,8 @@ import com.hypixel.hytale.server.core.ui.builder.UICommandBuilder;
 import com.hypixel.hytale.server.core.ui.builder.UIEventBuilder;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.tuples.captcha.Main;
+import com.tuples.captcha.CaptchaPlugin;
 import com.tuples.captcha.component.CaptchaComponent;
-import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
 
@@ -83,7 +81,7 @@ public class CaptchaPage extends InteractiveCustomUIPage<CaptchaPage.PageEventDa
 
     @Override
     public void handleDataEvent(@Nonnull Ref<EntityStore> ref, @Nonnull Store<EntityStore> store, @Nonnull PageEventData data) {
-        CaptchaComponent component = store.ensureAndGetComponent(ref, Main.get().captchaComponentType);
+        CaptchaComponent component = store.ensureAndGetComponent(ref, CaptchaPlugin.get().captchaComponentType);
         switch (data.action) {
             case "CELL_CLICK" -> {
                 System.out.println("Captcha cell clicked: " + data.cellId);

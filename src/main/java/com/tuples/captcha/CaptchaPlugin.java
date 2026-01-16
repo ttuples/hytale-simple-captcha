@@ -10,16 +10,16 @@ import com.tuples.captcha.component.CaptchaComponent;
 import javax.annotation.Nonnull;
 import java.util.logging.Level;
 
-public class Main extends JavaPlugin {
+public class CaptchaPlugin extends JavaPlugin {
 
-    private static Main instance;
+    private static CaptchaPlugin instance;
     public ComponentType<EntityStore, CaptchaComponent> captchaComponentType;
 
-    public Main(@Nonnull JavaPluginInit init) {
+    public CaptchaPlugin(@Nonnull JavaPluginInit init) {
         super(init);
     }
 
-    public static Main get() {
+    public static CaptchaPlugin get() {
         return instance;
     }
 
