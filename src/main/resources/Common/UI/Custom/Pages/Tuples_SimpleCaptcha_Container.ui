@@ -4,7 +4,7 @@ $S = "../Tuples_SimpleCaptcha_Styles.ui";
 $C.@PageOverlay {}
 
 $C.@Container {
-  Anchor: (Width: 400, Height: 300);
+  Anchor: (Width: 400, Height: 400);
 
   #Title {
     Group {
@@ -17,16 +17,23 @@ $C.@Container {
   #Content {
     LayoutMode: Top;
 
-    Group #Main {
-      LayoutMode: Top;
+    Group {
+      LayoutMode: Middle;
 
-      Group #CaptchaContainer {
-        LayoutMode: Middle;
-        Anchor: (Width: 174, Height: 174);
+      Label {
+        Style: $S.@CaptchaLabelStyle;
+        Text: "Please select all images that match the description.";
+      }
+    }
 
-        Group #CaptchaGrid {
-          LayoutMode: LeftCenterWrap;
-        }
+    Label {FlexWeight: 1;}
+
+    Group #CaptchaContainer {
+      LayoutMode: Middle;
+      Anchor: (Width: 223, Height: 223);
+
+      Group #CaptchaGrid {
+        LayoutMode: LeftCenterWrap;
       }
     }
 

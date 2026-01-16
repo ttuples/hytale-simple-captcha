@@ -1,8 +1,58 @@
 $C = "../Common.ui";
 $S = "../Tuples_SimpleCaptcha_Styles.ui";
 
-Group #CaptchaCell {
+Group #Cell {
+  Anchor: (Width: 74, Height: 74);
+  Padding: (Full: 2);
+
+  TextButton #Button {
+    Visible: true;
+    TextTooltipStyle: $C.@DefaultTextTooltipStyle;
+    Style: (
+      Sounds: $C.@ButtonSounds,
+      Default: (
+        LabelStyle: (
+          Wrap: true,
+          HorizontalAlignment: Center,
+          VerticalAlignment: Center,
+        ),
+        Background: (TexturePath: "../Captcha/Cell/default.png"),
+      ),
+      Hovered: (
+        LabelStyle: (
+          Wrap: true,
+          HorizontalAlignment: Center,
+          VerticalAlignment: Center,
+        ),
+        Background: (TexturePath: "../Captcha/Cell/hovered.png", Border: 8),
+      )
+    );
+    FlexWeight: 1;
+  }
+
+  TextButton #ButtonSelected {
+    TextTooltipStyle: $C.@DefaultTextTooltipStyle;
+    Visible: false;
+    Style: (
+      Sounds: $C.@ButtonSounds,
+      Default: (
+        LabelStyle: (
+          Wrap: true,
+          HorizontalAlignment: Center,
+          VerticalAlignment: Center,
+        ),
+        Background: (TexturePath: "../Captcha/gaben.png"),
+      )
+    );
+    FlexWeight: 1;
+  }
+
+  Group {
     LayoutMode: Middle;
-    Padding: (Top: 5, Bottom: 5, Left: 5, Right: 5);
-    $S.@CaptchaCellButton #Button {}
+    Anchor: (Full: 0);
+
+    AssetImage #Icon {
+      Anchor: (Width: 72, Height: 72);
+    }
+  }
 }

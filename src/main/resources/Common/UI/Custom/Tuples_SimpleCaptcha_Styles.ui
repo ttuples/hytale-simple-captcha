@@ -42,7 +42,7 @@ $C = "Common.ui";
 @CaptchaCellButton = Button {
   @Anchor = Anchor();
   @Sounds = ();
-  @Size = 48;
+  @Size = 64;
   Style: @CaptchaCellButtonStyle;
   Anchor: (...@Anchor, Height: @Size, Width: @Size);
 };
