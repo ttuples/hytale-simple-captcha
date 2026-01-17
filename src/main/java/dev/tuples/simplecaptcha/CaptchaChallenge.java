@@ -1,4 +1,4 @@
-package com.tuples.simplecaptcha;
+package dev.tuples.simplecaptcha;
 
 import java.util.Map;
 

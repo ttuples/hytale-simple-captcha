@@ -1,12 +1,12 @@
-package com.tuples.simplecaptcha.component;
+package dev.tuples.simplecaptcha.component;
 
 import com.hypixel.hytale.codec.Codec;
 import com.hypixel.hytale.codec.KeyedCodec;
 import com.hypixel.hytale.codec.builder.BuilderCodec;
 import com.hypixel.hytale.component.Component;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.tuples.simplecaptcha.CaptchaChallenge;
-import com.tuples.simplecaptcha.CaptchaPlugin;
+import dev.tuples.simplecaptcha.CaptchaChallenge;
+import dev.tuples.simplecaptcha.CaptchaPlugin;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;

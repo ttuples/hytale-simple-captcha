@@ -1,4 +1,4 @@
-package com.tuples.simplecaptcha;
+package dev.tuples.simplecaptcha;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -6,8 +6,8 @@ import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.tuples.simplecaptcha.command.ShowCaptchaCommand;
-import com.tuples.simplecaptcha.component.CaptchaComponent;
+import dev.tuples.simplecaptcha.command.ShowCaptchaCommand;
+import dev.tuples.simplecaptcha.component.CaptchaComponent;
 
 import javax.annotation.Nonnull;
 import java.io.InputStream;

@@ -1,4 +1,4 @@
-package com.tuples.simplecaptcha.gui;
+package dev.tuples.simplecaptcha.gui;
 
 import com.hypixel.hytale.codec.Codec;
 import com.hypixel.hytale.codec.KeyedCodec;
@@ -14,8 +14,8 @@ import com.hypixel.hytale.server.core.ui.builder.UICommandBuilder;
 import com.hypixel.hytale.server.core.ui.builder.UIEventBuilder;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import com.tuples.simplecaptcha.CaptchaPlugin;
-import com.tuples.simplecaptcha.component.CaptchaComponent;
+import dev.tuples.simplecaptcha.CaptchaPlugin;
+import dev.tuples.simplecaptcha.component.CaptchaComponent;
 
 import javax.annotation.Nonnull;
 
