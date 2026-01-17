@@ -89,7 +89,10 @@ public class CaptchaPage extends InteractiveCustomUIPage<CaptchaPage.PageEventDa
                 this.rebuild();
             }
             case "SUBMIT" -> {
-                if (component.submit()) { this.close(); }
+                if (component.submit()) {
+                    component.reset();
+                    this.close();
+                }
                 else { this.rebuild(); }
             }
             case "REFRESH" -> {
