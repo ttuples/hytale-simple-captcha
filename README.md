@@ -2,7 +2,7 @@
 
 SimpleCaptcha was originally a [Minecraft](https://modrinth.com/mod/simple-captcha) mod I made for fun, and now I've recreated it in Hytale for practice.
 
-![](https://i.imgur.com/0TjKV2i.png)
+![](https://i.imgur.com/KlLS9Q1.png)
 
 ## Disclaimer
 
