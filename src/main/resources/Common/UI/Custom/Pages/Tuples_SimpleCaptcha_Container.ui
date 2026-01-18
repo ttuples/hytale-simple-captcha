@@ -28,6 +28,23 @@ $C.@Container {
         Style: $S.@CaptchaInstructionStyle;
         Text: "";
       }
+
+      Group {
+        LayoutMode: LeftCenterWrap;
+
+        Label {
+          Style: $S.@CaptchaLabelStyle;
+          Text: %captcha.ui.difficulty;
+        }
+        Label {
+          Style: $S.@CaptchaLabelStyle;
+          Text: ": ";
+        }
+        Label #Difficulty {
+          Style: $S.@CaptchaLabelStyle;
+          Text: "";
+        }
+      }
     }
 
     Label {FlexWeight: 1;}

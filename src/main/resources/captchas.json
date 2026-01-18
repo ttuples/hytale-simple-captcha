@@ -1,6 +1,7 @@
 {
   "warthog": {
     "text": "captcha.key.warthog",
+    "difficulty": "easy",
     "images": {
       "Captcha/Challenges/warthog/cell_0_0.png": false,
       "Captcha/Challenges/warthog/cell_0_1.png": false,
@@ -8,7 +9,7 @@
       "Captcha/Challenges/warthog/cell_0_3.png": false,
       "Captcha/Challenges/warthog/cell_1_0.png": true,
       "Captcha/Challenges/warthog/cell_1_1.png": true,
-      "Captcha/Challenges/warthog/cell_1_2.png": true,
+      "Captcha/Challenges/warthog/cell_1_2.png": false,
       "Captcha/Challenges/warthog/cell_1_3.png": false,
       "Captcha/Challenges/warthog/cell_2_0.png": false,
       "Captcha/Challenges/warthog/cell_2_1.png": false,
@@ -22,6 +23,7 @@
   },
   "wip": {
     "text": "captcha.key.wip",
+    "difficulty": "easy",
     "images": {
       "Captcha/Challenges/wip/cell_0_0.png": false,
       "Captcha/Challenges/wip/cell_0_1.png": false,
@@ -43,6 +45,7 @@
   },
   "barrel": {
     "text": "captcha.key.barrel",
+    "difficulty": "easy",
     "images": {
       "Captcha/Challenges/barrel/cell_0_0.png": false,
       "Captcha/Challenges/barrel/cell_0_1.png": false,
@@ -64,6 +67,7 @@
   },
   "rabbit": {
     "text": "captcha.key.rabbit",
+    "difficulty": "medium",
     "images": {
       "Captcha/Challenges/rabbit/cell_0_0.png": false,
       "Captcha/Challenges/rabbit/cell_0_1.png": false,
@@ -85,6 +89,7 @@
   },
   "kweebec": {
     "text": "captcha.key.kweebec",
+    "difficulty": "hard",
     "images": {
       "Captcha/Challenges/kweebec/cell_0_0.png": false,
       "Captcha/Challenges/kweebec/cell_0_1.png": false,
@@ -106,6 +111,7 @@
   },
   "fish": {
     "text": "captcha.key.fish",
+    "difficulty": "hard",
     "images": {
       "Captcha/Challenges/fish/cell_0_0.png": false,
       "Captcha/Challenges/fish/cell_0_1.png": false,
@@ -127,6 +133,7 @@
   },
   "minecart": {
     "text": "captcha.key.minecart",
+    "difficulty": "medium",
     "images": {
       "Captcha/Challenges/minecart/cell_0_0.png": false,
       "Captcha/Challenges/minecart/cell_0_1.png": false,

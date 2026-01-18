@@ -1,20 +1,20 @@
 {
-  "Group": "Tuples",
-  "Name": "SimpleCaptcha",
-  "Version": "1.0.0",
-  "Description": "Joke Captcha Mod for Hytale",
-  "Authors": [
-    {
-      "Name": "Tuples"
-    }
-  ],
-  "Website": "https://github.com/ttuples/hytale-simple-captcha",
-  "Main": "dev.tuples.simplecaptcha.CaptchaPlugin",
-  "ServerVersion": "*",
-  "Dependencies": {
-    "Hytale:EntityModule": "*"
-  },
-  "OptionalDependencies": {},
-  "DisabledByDefault": false,
-  "IncludesAssetPack": true
+    "Group": "Tuples",
+    "Name": "SimpleCaptcha",
+    "Version": "1.1.0",
+    "Description": "Joke Captcha Mod for Hytale",
+    "Authors": [
+        {
+            "Name": "Tuples"
+        }
+    ],
+    "Website": "https://github.com/ttuples/hytale-simple-captcha",
+    "Main": "dev.tuples.simplecaptcha.CaptchaPlugin",
+    "ServerVersion": "*",
+    "Dependencies": {
+        "Hytale:EntityModule": "*"
+    },
+    "OptionalDependencies": {},
+    "DisabledByDefault": false,
+    "IncludesAssetPack": true
 }

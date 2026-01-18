@@ -2,7 +2,6 @@ package dev.tuples.simplecaptcha.command;
 
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
-import com.hypixel.hytale.protocol.GameMode;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
 import com.hypixel.hytale.server.core.command.system.CommandSender;
 import com.hypixel.hytale.server.core.command.system.arguments.system.OptionalArg;
@@ -23,7 +22,7 @@ public class ShowCaptchaCommand extends AbstractAsyncCommand {
     public ShowCaptchaCommand() {
         super("simplecaptcha", "captcha.command.desc");
         this.addAliases("captcha");
-        this.setPermissionGroup(GameMode.Adventure);
+        this.setPermissionGroups("OP");
 
         targetPlayerArg = withOptionalArg("player", "captcha.command.player", ArgTypes.PLAYER_REF);
     }

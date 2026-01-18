@@ -44,6 +44,8 @@ public class CaptchaPage extends InteractiveCustomUIPage<CaptchaPage.PageEventDa
 
         // Setup page
         commands.set("#CaptchaInstruction.Text", Message.translation(component.getChallengeInstruction()));
+        commands.set("#Difficulty.Text", Message.translation("captcha.ui.difficulty." + component.getDifficulty()));
+        commands.set("#Difficulty.Style.TextColor", component.getDifficultyColor());
 
         // Set up the simplecaptcha grid
         commands.clear("#CaptchaGrid");

@@ -4,6 +4,10 @@ command.player=Target player
 ui.instruction=Select all images that contain
 ui.submit=Submit
 ui.refresh=Refresh
+ui.difficulty=Difficulty
+ui.difficulty.easy=Easy
+ui.difficulty.medium=Medium
+ui.difficulty.hard=Hard
 
 key.warthog=Warthog
 key.wip=WIP

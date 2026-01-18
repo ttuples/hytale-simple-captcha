@@ -72,6 +72,23 @@ public class CaptchaComponent implements Component<EntityStore> {
         return challenge.text;
     }
 
+    public String getDifficulty() {
+        CaptchaChallenge challenge =
+                CaptchaPlugin.get().getCaptchaByName(currentChallenge);
+
+        return challenge.difficulty;
+    }
+
+    public String getDifficultyColor() {
+        String difficulty = getDifficulty();
+        return switch (difficulty.toLowerCase()) {
+            case "easy" -> "#aaff55";
+            case "medium" -> "#ffaa00";
+            case "hard" -> "#ff5555";
+            default -> "#ffffff";
+        };
+    }
+
     public boolean isCellSelected(int index) {
         if (index >= 0 && index < selectedCells.length) {
             return selectedCells[index] == 1;
