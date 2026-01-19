@@ -47,27 +47,3 @@ $C = "Common.ui";
   ),
   Sounds: $C.@ButtonSounds
 );
-
-@CaptchaCellButton = Button {
-  @Anchor = Anchor();
-  @Sounds = ();
-  @Size = 64;
-  Style: @CaptchaCellButtonStyle;
-  Anchor: (...@Anchor, Height: @Size, Width: @Size);
-};
-
-@CaptchaCellButtonStyle = ButtonStyle(
-  Default: (
-    Background: @CaptchaPlaceholder
-  ),
-  Hovered: (
-    Background: @CaptchaPlaceholder
-  ),
-  Pressed: (
-    Background: @CaptchaPlaceholder
-  ),
-  Disabled: (
-    Background: @CaptchaPlaceholder
-  ),
-  Sounds: $C.@ButtonSounds
-);
