@@ -12,7 +12,12 @@ This mod is intended for **joke purposes only** and should not be used as a secu
 
 - `/captcha`: Triggers a captcha challenge for the player executing the command. (alias of /simplecaptcha)
 
-- `/captcha --player=Player Name`: Triggers a captcha challenge to the specified player.
+- `/captcha target [Player Name]`: Triggers a captcha challenge to the specified player.
+
+## Permissions
+
+- `simplecaptcha.use`: Allows the player to use the `/captcha` command.
+- `simplecaptcha.target`: Allows the player to target other players with the `/captcha target` command.
 
 ## Installation
 
