@@ -1,7 +1,6 @@
 package dev.tuples.simplecaptcha.util;
 
 import com.hypixel.hytale.server.core.Message;
-import com.hypixel.hytale.server.core.entity.entities.Player;
 
 public enum PermissionList {
     USE("use", "You do not have permission to use this command."),
@@ -9,7 +8,7 @@ public enum PermissionList {
     private final String permission;
     private final String denyMessage;
 
-    private PermissionList(String permission, String denyMessage){
+    PermissionList(String permission, String denyMessage){
         this.permission = String.format("simplecaptcha.%s", permission);
         this.denyMessage = denyMessage;
     }
